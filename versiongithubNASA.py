@@ -12,7 +12,34 @@ from io import BytesIO
 from math import gamma as gamma_func  # Función gamma
 import requests
 import os
+# Código CSS para personalizar la barra de desplazamiento
+st.markdown("""
+<style>
+/* Estilo para la barra de desplazamiento en Chrome, Edge y Safari */
+::-webkit-scrollbar {
+  width: 12px;
+}
 
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Estilo para la barra de desplazamiento en Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+</style>
+""", unsafe_allow_html=True)
 # Variable para definir el percentil de filtrado
 PERCENTILE_THRESHOLD = 90  # Modifica este valor según sea necesario
 
