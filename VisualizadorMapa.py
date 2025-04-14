@@ -22,7 +22,7 @@ def extraer_datos(nombre_archivo):
     return None, None, None
 
 def generar_dataframe_desde_archivos(ruta_carpeta):
-    archivos = os.listdir(ruta_carpeta)
+    archivos = sorted(os.listdir(ruta_carpeta))  # Ordena los archivos alfabéticamente
     datos = []
     for i, archivo in enumerate(archivos, start=1):
         if not archivo.lower().endswith(".data"):
