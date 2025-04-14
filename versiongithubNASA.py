@@ -81,16 +81,18 @@ st.title("Comparativa Datos Nasa")
 directorio_script = os.path.dirname(os.path.abspath(__file__))
 carpeta_datos = os.path.join(directorio_script, "DatosNasaProcesados")
 
+
 # Lista todos los archivos que terminan en .csv (sin distinguir mayúsculas/minúsculas)
 archivos_data = [f for f in os.listdir(carpeta_datos) if f.lower().endswith(".csv")]
+
+# Ordenamos los archivos alfabéticamente
+archivos_data.sort()
 
 # Extraemos la información de ubicación desde cada nombre de archivo
 ubicaciones = []
 for i, nombre_archivo in enumerate(archivos_data, start=1):
     ruta_archivo = os.path.join(carpeta_datos, nombre_archivo)
     ubicacion, lat_str, lon_str = extraer_datos(nombre_archivo)
-    # Se imprime para depuración
-    
     if ubicacion:
         ubicaciones.append((f"Archivo {i} - {ubicacion}", lat_str, lon_str, ruta_archivo))
 
