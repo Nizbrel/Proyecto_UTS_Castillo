@@ -67,8 +67,8 @@ directorio_script = os.path.dirname(os.path.abspath(__file__))
 # Ruta a la carpeta dentro del repositorio
 carpeta_datos = os.path.join(directorio_script, "DatosIdeamProcesados")
 
-# Buscar todos los archivos .DATA en esa carpeta
-archivos_data = [f for f in os.listdir(carpeta_datos) if f.lower().endswith(".data")]
+# Obtener y ordenar alfabéticamente los archivos .DATA en la carpeta
+archivos_data = sorted([f for f in os.listdir(carpeta_datos) if f.lower().endswith(".data")])
 
 ubicaciones = []
 for i, nombre_archivo in enumerate(archivos_data, start=1):
@@ -76,7 +76,6 @@ for i, nombre_archivo in enumerate(archivos_data, start=1):
     ubicacion, latitud, longitud = extraer_datos(nombre_archivo)
     if ubicacion:
         ubicaciones.append((f"Archivo {i} - {ubicacion}", latitud, longitud, ruta_archivo))
-
 # ------------------
 # Selector con filtro de búsqueda
 # ------------------
