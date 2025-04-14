@@ -1,0 +1,7 @@
+folium
+numpy
+pandas
+plotly
+requests
+streamlit
+scipy
