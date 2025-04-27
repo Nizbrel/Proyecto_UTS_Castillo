@@ -298,4 +298,5 @@ if opciones_filtradas:
             st.latex(r"c = {:.2f}".format(weibull_ml.c))
             st.latex(r"\Gamma(1 + 3/k) = {:.2f}".format(gamma))
             st.latex(r"\rho = {:.2f} \ kg/m^3".format(rho))
-            st.latex(r"\frac{P}{A} = {:.2f} \ W/m^2".format(potencia))
+            st.latex(r"\frac{P}{A} = " + "{:.2f}".format(potencia) + r"\ \mathrm{\frac{W}{m^2}}")
+
