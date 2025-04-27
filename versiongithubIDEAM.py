@@ -248,7 +248,7 @@ if opciones_filtradas:
                 # Evaluación de la hipótesis nula
         st.write("**Hipótesis Nula (H₀):** Los datos siguen una distribución Weibull.")
         max_diff = np.max(np.abs(empirical_cdf - weibull_cdf))
-        st.write(f"**Máxima diferencia (D):** {max_diff:.4f}")
+         st.write(f"*Máxima diferencia (D):* {max_diff*100:.2f}%")
         if max_diff < 0.1:  # Umbral arbitrario para aceptar/rechazar H₀
             st.success("No se rechaza H₀: Los datos siguen una distribución Weibull.")
         else:
