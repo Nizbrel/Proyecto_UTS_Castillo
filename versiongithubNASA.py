@@ -235,12 +235,8 @@ if opciones_filtradas:
                 x=x_vals, y=weibull_min.pdf(x_vals, weibull_ml.k, scale=weibull_ml.c),
                 mode="lines", name="Weibull ML", line=dict(dash="dash")
             ))
-            fig2.add_annotation(
-                x=df_weibull["Velocidad"].max() * 0.7, y=0.8,
-                text=f" k = {weibull_ml.k:.4f} <br> c = {weibull_ml.c:.4f}",
-                showarrow=False, font=dict(size=12, color="black"),
-                bgcolor="white", bordercolor="black", borderwidth=1, borderpad=4, opacity=0.8
-            )
+            fig2.add_annotation(x=0.95, y=0.95, xref="paper", yref="paper", text=f"k = {weibull_ml.k:.4f} <br>c = {weibull_ml.c:.4f}", showarrow=False, font=dict(size=12, color="black"), bgcolor="white", bordercolor="black", borderwidth=1, borderpad=4, opacity=0.8, align="left")
+
             fig2.update_layout(
                 title="📈 Distribución Weibull",
                 xaxis_title="Velocidad (m/s)",
@@ -281,7 +277,7 @@ if opciones_filtradas:
         # Evaluación de la hipótesis nula
         st.write("**Hipótesis Nula (H₀):** Los datos siguen una distribución Weibull.")
         max_diff = np.max(np.abs(empirical_cdf - weibull_cdf))
-        st.write(f"**Máxima diferencia (D):** {max_diff:.4f}")
+        st.write(f"Máxima diferencia (D): {max_diff*100:.2f}%")
         if max_diff < 0.1:  # Umbral arbitrario para la decisión
             st.success("No se rechaza H₀: Los datos siguen una distribución Weibull.")
         else:
@@ -294,6 +290,8 @@ if opciones_filtradas:
             for _ in range(6):
                 st.write("") 
             st.latex(r"P = \frac{1}{2} \rho c^3 \Gamma\left(1 + \frac{3}{k}\right)")
+            for _ in range(6):
+                st.write("") 
         with col6:
             st.markdown("#### Parámetros Weibull y Potencia estimada")
             # Función para calcular la densidad del aire a determinada altitud
@@ -327,4 +325,4 @@ if opciones_filtradas:
             st.latex(f"c = {weibull_ml.c:.2f}")
             st.latex(f"\\Gamma\\left(1 + \\frac{{3}}{{k}}\\right) = {gamma_val:.2f}")
             st.latex(f"\\rho = {rho:.2f} \\ \\text{{kg/m}}^3")
-            st.latex(f"P = {potencia:.2f} \\ \\text{{W/m}}^2")
+            st.latex(r"\frac{P}{A} = " + "{:.2f}".format(potencia) + r"\ W/m^2")
