@@ -224,7 +224,7 @@ if opciones_filtradas:
             fig2.add_trace(go.Histogram(x=df_weibull["Velocidad"], nbinsx=10, histnorm="probability density", name="Datos", opacity=0.8, marker=dict(line=dict(width=1, color="black"))))
             x = np.linspace(df_weibull["Velocidad"].min(), df_weibull["Velocidad"].max(), 100)
             fig2.add_trace(go.Scatter(x=x, y=weibull_min.pdf(x, weibull_ml.k, scale=weibull_ml.c), mode="lines", name="Weibull ML", line=dict(dash="dash")))
-            fig2.add_annotation(x=df_weibull["Velocidad"].max() * 0.7, y=0.8, text=f" k = {weibull_ml.k:.4f} <br> c = {weibull_ml.c:.4f}", showarrow=False, font=dict(size=12, color="black"), bgcolor="white", bordercolor="black", borderwidth=1, borderpad=4, opacity=0.8)
+            fig2.add_annotation(x=0.95, y=0.95, xref="paper", yref="paper", text=f"k = {weibull_ml.k:.4f} <br>c = {weibull_ml.c:.4f}", showarrow=False, font=dict(size=12, color="black"), bgcolor="white", bordercolor="black", borderwidth=1, borderpad=4, opacity=0.8, align="left")
             fig2.update_layout(title="📈 Distribución Weibull", xaxis_title="Velocidad (m/s)", yaxis_title="Densidad", barmode="overlay", template="plotly_white")
             st.plotly_chart(fig2)
 
@@ -248,7 +248,7 @@ if opciones_filtradas:
                 # Evaluación de la hipótesis nula
         st.write("**Hipótesis Nula (H₀):** Los datos siguen una distribución Weibull.")
         max_diff = np.max(np.abs(empirical_cdf - weibull_cdf))
-        st.write(f"*Máxima diferencia (D):* {max_diff*100:.2f}%")
+        st.write(f"Máxima diferencia (D): {max_diff*100:.2f}%")
         if max_diff < 0.1:  # Umbral arbitrario para aceptar/rechazar H₀
             st.success("No se rechaza H₀: Los datos siguen una distribución Weibull.")
         else:
