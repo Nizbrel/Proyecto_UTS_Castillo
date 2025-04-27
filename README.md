@@ -12,9 +12,14 @@ ________________________________________________________________________________
 
 
 📌 Descripción del Proyecto
+
 Este repositorio contiene una aplicación web desarrollada con Streamlit para el análisis del recurso eólico en Zonas de Alta Montaña de la Región Andina.
 
 La app permite procesar datos históricos de velocidad del viento provenientes del IDEAM y otras fuentes como la NASA, aplicar ajustes estadísticos con la distribución de Weibull, y calcular el potencial de generación eólica en diferentes ubicaciones.
+
+_________________________________________________________________________________
+_________________________________________________________________________________
+
 
 🚀 Funcionalidades Principales
 
