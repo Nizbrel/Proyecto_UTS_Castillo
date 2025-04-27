@@ -322,7 +322,7 @@ if opciones_filtradas:
             potencia = 0.5 * rho * (weibull_ml.c ** 3) * gamma_val
 
             st.latex(f"k = {weibull_ml.k:.2f}")
-            st.latex(f"c = {weibull_ml.c:.2f}")
+            st.latex(f"c = {weibull_ml.c:.2f}" + r"\ m/s")
             st.latex(f"\\Gamma\\left(1 + \\frac{{3}}{{k}}\\right) = {gamma_val:.2f}")
             st.latex(f"\\rho = {rho:.2f} \\ \\text{{kg/m}}^3")
             st.latex(r"\frac{P}{A} = " + "{:.2f}".format(potencia) + r"\ W/m^2")
