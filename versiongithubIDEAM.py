@@ -260,7 +260,8 @@ if opciones_filtradas:
             st.markdown("#### Fórmula de Potencia por unidad de área (Weibull)")
             for _ in range(6):
                 st.write("") 
-            st.latex(r"P = \frac{1}{2} \rho c^3 \Gamma\left(1 + \frac{3}{k}\right)")
+            st.latex(r"\frac{P}{A} = \frac{1}{2} \rho c^3 \Gamma\left(1 + \frac{3}{k}\right)")
+
 
         with col6:
             st.markdown("#### Parámetros Weibull y Potencia estimada")
