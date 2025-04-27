@@ -261,6 +261,8 @@ if opciones_filtradas:
             for _ in range(6):
                 st.write("") 
             st.latex(r"\frac{P}{A} = \frac{1}{2} \rho c^3 \Gamma\left(1 + \frac{3}{k}\right)")
+            for _ in range(6):
+                st.write("") 
 
 
         with col6:
@@ -298,5 +300,5 @@ if opciones_filtradas:
             st.latex(r"c = {:.2f}".format(weibull_ml.c))
             st.latex(r"\Gamma(1 + 3/k) = {:.2f}".format(gamma))
             st.latex(r"\rho = {:.2f} \ kg/m^3".format(rho))
-            st.latex(r"\frac{P}{A} = " + "{:.2f}".format(potencia) + r"\ \mathrm{\frac{W}{m^2}}")
+            st.latex(r"\frac{P}{A} = " + "{:.2f}".format(potencia) + r"\ W/m^2")
 
